@@ -105,123 +105,174 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
 
 ```sql
--- Paste your SQL code below for Question 1
+create table ProjectAssignments(
+   AssignmentID INT PRIMARY KEY,
+   EmployeeID INT, 
+   ProjectID INT,
+   AssignmentDate DATE NOT NULL,
+   FOREIGN KEY(EmployeeID) REFERENCES Employees(EmployeeID),
+   FOREIGN KEY(ProjectID) REFERENCES Projects(ProjectID)
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1104" height="165" alt="image" src="https://github.com/user-attachments/assets/c7a91da7-438e-4830-8056-199863caabde" />
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL Query to add an attribute designation in the employee table with the data type VARCHAR(50).
 
 ```sql
--- Paste your SQL code below for Question 2
+ALTER TABLE employee
+ADD COLUMN designation varchar(50);
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1178" height="239" alt="image" src="https://github.com/user-attachments/assets/2af28a73-b8ae-4b36-8852-0ae13256ab2b" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
 
 ```sql
--- Paste your SQL code below for Question 3
+create table contacts(
+   contact_id INT PRIMARY KEY,
+   first_name TEXT NOT NULL, 
+   last_name TEXT NOT NULL,
+   email TEXT,
+   phone TEXT NOT NULL CHECK(length(phone)>=10)
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1321" height="193" alt="image" src="https://github.com/user-attachments/assets/78fc2de0-e4d2-4ed1-a69f-21950a0355f6" />
 
 **Question 4**
 ---
--- Paste Question 4 here
-
+Create a table named Orders with the following constraints:
+OrderID as INTEGER should be the primary key.
+OrderDate as DATE should be not NULL.
+CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
 ```sql
--- Paste your SQL code below for Question 4
+create table Orders(
+   OrderID INT PRIMARY KEY,
+   OrderDate DATE NOT NULL, 
+   CustomerID INT,
+   FOREIGN KEY(CustomerID) REFERENCES Customers(CustomerID)
+);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1299" height="232" alt="image" src="https://github.com/user-attachments/assets/8e02b259-4a95-4850-8fd1-9e38d2ecc98a" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to add a new column MobileNumber of type NUMBER and a new column Address of type VARCHAR(100) to the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 5
+ALTER TABLE Student_details ADD  MobileNumber NUMBER;
+ALTER TABLE Student_details ADD Address VARCHAR(100);
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1209" height="290" alt="image" src="https://github.com/user-attachments/assets/f6f9ccdf-0df6-44a1-a80e-aba4c00eee04" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a table named Products with the following constraints:
+ProductID as INTEGER should be the primary key.
+ProductName as TEXT should be unique and not NULL.
+Price as REAL should be greater than 0.
+StockQuantity as INTEGER should be non-negative.
 
 ```sql
--- Paste your SQL code below for Question 6
+create table  Products(
+   ProductID INT PRIMARY KEY,
+   ProductName TEXT NOT NULL UNIQUE, 
+   Price REAL NOT NULL CHECK(Price>0),
+   StockQuantity INT CHECK(StockQuantity>=0)
+);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1186" height="182" alt="image" src="https://github.com/user-attachments/assets/139ee50e-d91e-470d-b63e-3cc5ba0be5e9" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Insert a book with ISBN 978-1234567890, Title Data Science Essentials, Author Jane Doe, Publisher TechBooks, and Year 2024 into the Books table.
 
 ```sql
--- Paste your SQL code below for Question 7
+INSERT INTO Books(ISBN,Title,Author,Publisher,Year) VALUES ("978-1234567890","Data Science Essentials","Jane Doe","TechBooks","2024");
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1212" height="209" alt="image" src="https://github.com/user-attachments/assets/375f3455-9f04-4ce4-a920-72f5ee4e7bfa" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Create a table named Departments with the following columns:
+DepartmentID as INTEGER
+DepartmentName as TEXT
 
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE Departments(
+  DepartmentID INTEGER,
+  DepartmentName TEXT
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1226" height="275" alt="image" src="https://github.com/user-attachments/assets/647c2027-03f8-447a-a940-c03e2dfad4bc" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+In the Student_details table, insert a student record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
 ```sql
--- Paste your SQL code below for Question 9
+INSERT INTO Student_details(RollNo,Name,Gender,Subject,MARKS) VALUES (205,"Olivia Green","F",NULL,NULL);
+INSERT INTO Student_details(RollNo,Name,Gender,Subject,MARKS) VALUES (207,"Liam Smith","M","Mathematic",85);
+INSERT INTO Student_details(RollNo,Name,Gender,Subject,MARKS) VALUES (208,"Sophia Johns","F","Science",NULL);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1141" height="230" alt="image" src="https://github.com/user-attachments/assets/2a71d5d0-a136-4f0f-aef3-2fd2c441a5cc" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert all products from Discontinued_products into Products.
+Table attributes are ProductID, ProductName, Price, Stock
 
 ```sql
--- Paste your SQL code below for Question 10
+INSERT INTO Products(ProductID,ProductName,Price,Stock)
+SELECT ProductID,ProductName,Price,Stock from Discontinued_products;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="904" height="233" alt="image" src="https://github.com/user-attachments/assets/4318f0fb-e903-4661-a100-02e8e106ecee" />
+
+<img width="1919" height="1153" alt="image" src="https://github.com/user-attachments/assets/7cbf0c93-3c48-4791-8f36-27f4937ed640" />
 
 
 ## RESULT
